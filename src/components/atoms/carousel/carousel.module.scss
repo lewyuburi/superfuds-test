@@ -1,0 +1,24 @@
+.carousel {
+  display: flex;
+  gap: 1rem;
+  margin: 0 -3.5rem;
+
+  .prevButton,
+  .nextButton {
+    height: 340px;
+    border-width: 0;
+    background-color: transparent;
+    color: var(--color-green);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .carouselInner {
+    display: flex;
+    gap: 2rem;
+    height: 100%;
+    overflow-x: hidden;
+    padding: .5rem .5rem 1rem;
+    scroll-behavior: smooth;
+  }
+}

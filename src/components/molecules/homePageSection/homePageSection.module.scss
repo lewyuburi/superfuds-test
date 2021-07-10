@@ -1,0 +1,19 @@
+.homePageSection {
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+
+    .title {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .moreLink {
+      font-size: .75rem;
+      font-weight: bold;
+    }
+  }
+}
