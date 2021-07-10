@@ -36,7 +36,7 @@ const CartTemplate = (props: CartTemplateProps) => {
                 {props.items.reduce((acc, item) => acc + item.quantity, 0)}
               </span>
               <span>
-                items
+                {props.items.reduce((acc, item) => acc + item.quantity, 0) === 1 ? "item" : "items"}
               </span>
             </div>
           </div>

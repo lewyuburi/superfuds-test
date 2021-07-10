@@ -17,8 +17,9 @@
   }
 
   .modal {
+    max-width: 100vw;
     position: absolute;
-    padding: 2rem 2rem 1rem 1rem;
+    padding: 2rem 1rem 1rem;
     top: 0;
     right: 0;
     z-index: 20;
@@ -38,7 +39,7 @@
         border-width: 0;
         background-color: transparent;
         cursor: pointer;
-        padding: 0;
+        padding: 1rem 0;
 
         .closeModalText {
           transition: all 0.3s ease;
@@ -78,7 +79,7 @@
 
     .modalBody {
       .headers {
-        display: flex;
+        display: none;
         font-weight: bold;
         font-size: .75rem;
         justify-content: space-between;
@@ -113,11 +114,12 @@
 
         .cartItem {
           display: flex;
-          gap: 2rem;
+          gap: .5rem .5rem 1.5rem;
           align-items: center;
           justify-content: space-between;
-          border-radius: .5rem;
           padding: .5rem;
+          flex-wrap: wrap;
+          border-bottom: 1px solid rgba(0,0,0,0.1);
 
           .cartItemDetails {
             display: flex;
@@ -185,6 +187,7 @@
               border-width: 0;
               background-color: transparent;
               border-radius: 50%;
+              padding: 0;
 
               &:disabled {
                 pointer-events: none;
@@ -234,3 +237,39 @@
     width: 100vw;
   }
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cart {
+    .modal {
+      padding: 2rem 2rem 1rem 1rem;
+
+      .modalBody {
+        .headers {
+          display: flex;
+        }
+
+        .cartItemsList {
+          .cartItem {
+            gap: 2rem;
+            border-radius: .5rem;
+            border-width: 0;
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}
