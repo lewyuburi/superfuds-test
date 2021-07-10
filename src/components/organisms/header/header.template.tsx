@@ -28,12 +28,26 @@ const HeaderTemplate = (props: HeaderTemplateProps) => {
             />
           </Link>
 
-          <button className={styles.navbarToggle} onClick={() => props.setShowNavbar(!props.showNavbar)}>
-            <Icon path={mdiMenu}
-              title="Search"
-              size={1.5}
-            />
-          </button>
+          <div className={styles.mobileButtons}>
+            <button className={styles.cartButtonMobile} onClick={props.doShowCart}>
+              <Icon path={mdiCart}
+                title="Cart"
+                size={1.5}
+              />
+              {props.cartItems > 0 && (
+                <span className={styles.badge}>
+                  {props.cartItems > 9 ? '+9' : props.cartItems}
+                </span>
+              )}
+            </button>
+
+            <button className={styles.navbarToggle} onClick={() => props.setShowNavbar(!props.showNavbar)}>
+              <Icon path={mdiMenu}
+                title="Search"
+                size={1.5}
+              />
+            </button>
+          </div>
 
           <div className={`${styles.navbarCollapse} ${props.showNavbar ? styles.show : ''}`}>
 
@@ -50,14 +64,16 @@ const HeaderTemplate = (props: HeaderTemplateProps) => {
             </div>
 
             <nav className={styles.userActions}>
-              <button className={styles.cartButton} onClick={props.doShowCart}>
+              <button className={styles.cartButtonDesktop} onClick={props.doShowCart}>
                 <Icon path={mdiCart}
                   title="Cart"
                   size={1.5}
                 />
-                <span className={styles.badge}>
-                  {props.cartItems > 9 ? '+9' : props.cartItems}
-                </span>
+                {props.cartItems > 0 && (
+                  <span className={styles.badge}>
+                    {props.cartItems > 9 ? '+9' : props.cartItems}
+                  </span>
+                )}
               </button>
 
               <button className={styles.userActionsDropdown}>

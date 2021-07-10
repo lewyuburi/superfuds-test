@@ -117,7 +117,7 @@
           gap: .5rem .5rem 1.5rem;
           align-items: center;
           justify-content: space-between;
-          padding: .5rem;
+          padding: .5rem .5rem 1.5rem;
           flex-wrap: wrap;
           border-bottom: 1px solid rgba(0,0,0,0.1);
 
@@ -179,7 +179,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: .5rem;
+            gap: 1rem;
 
             .mutateQuantityButton {
               cursor: pointer;
