@@ -10,13 +10,14 @@
     color: var(--color-green);
     cursor: pointer;
     padding: 0;
+    display: none;
   }
 
   .carouselInner {
     display: flex;
     gap: 2rem;
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
     padding: .5rem .5rem 1rem;
     scroll-behavior: smooth;
   }
@@ -32,6 +33,15 @@
 @media (min-width: 992px) {
   .carousel {
     margin: 0 -3.5rem;
+
+    .prevButton,
+    .nextButton {
+      display: block;
+    }
+
+    .carouselInner {
+      overflow-x: hidden;
+    }
   }
 }
 
