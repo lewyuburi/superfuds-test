@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Icon from '@mdi/react'
-import { mdiCart, mdiChevronDown, mdiMagnify, mdiMenu } from '@mdi/js';
+import { mdiCartOutline, mdiChevronDown, mdiMagnify, mdiMenu } from '@mdi/js';
 
 import Logo from '@/components/atoms/logo'
 import Avatar from '@/components/atoms/avatar'
@@ -30,7 +30,7 @@ const HeaderTemplate = (props: HeaderTemplateProps) => {
 
           <div className={styles.mobileButtons}>
             <button className={styles.cartButtonMobile} onClick={props.doShowCart}>
-              <Icon path={mdiCart}
+              <Icon path={mdiCartOutline}
                 title="Cart"
                 size={1.5}
               />
@@ -65,7 +65,7 @@ const HeaderTemplate = (props: HeaderTemplateProps) => {
 
             <nav className={styles.userActions}>
               <button className={styles.cartButtonDesktop} onClick={props.doShowCart}>
-                <Icon path={mdiCart}
+                <Icon path={mdiCartOutline}
                   title="Cart"
                   size={1.5}
                 />

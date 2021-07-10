@@ -1,0 +1,138 @@
+.cartItemCard {
+  display: flex;
+  gap: .5rem .5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem .5rem 1.5rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  .cartItemDetails {
+    display: flex;
+    gap: 1rem;
+
+    .cartItemImage {
+      width: 96px;
+      height: 128px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .cartItemInfo {
+      width: 152px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .5rem;
+
+      .cartItemTitle {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .cardItemMetadata {
+        font-size: .75rem;
+        color: var(--color-gray);
+        display: block;
+      }
+
+      .supplier {
+        font-size: .875rem;
+        display: block;
+        color: var(--color-green);
+      }
+
+      .cartItemPrice {
+        display: block;
+        font-size: .875rem;
+        font-weight: bold;
+
+        .cartItemPriceSymbol {
+          color: var(--color-green);
+        }
+
+        .cartItemPriceValue {}
+
+      }
+    }
+  }
+
+  .cartItemQuantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .mutateQuantityButton {
+      cursor: pointer;
+      color: var(--color-green);
+      border-width: 0;
+      background-color: transparent;
+      border-radius: 50%;
+      padding: 0;
+
+      &:disabled {
+        pointer-events: none;
+        color: var(--color-gray);
+      }
+    }
+  }
+
+  .cartItemTotalPrice {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    .cartItemPriceSymbol {
+      color: var(--color-green);
+      margin-right: .25rem;
+    }
+
+    .cartItemPriceValue {}
+  }
+
+  .cartItemActions {
+    .deleteButton {
+      color: var(--color-gray);
+      cursor: pointer;
+      border-width: 0;
+      background-color: transparent;
+      border-radius: 50%;
+
+      &:hover,
+      &:focus {
+        color: red;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #fafafa;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cartItemCard {
+    gap: 2rem;
+    border-radius: .5rem;
+    border-width: 0;
+    padding: 0.5rem;
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}

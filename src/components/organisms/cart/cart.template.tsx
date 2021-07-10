@@ -1,6 +1,10 @@
+import React from 'react';
 import Icon from '@mdi/react'
-import { mdiChevronLeft, mdiMinusCircleOutline, mdiPlusCircleOutline, mdiTrashCanOutline } from '@mdi/js';
-import { moneyFormat } from '@/utils/index';
+import { mdiChevronLeft, mdiCartOutline } from '@mdi/js';
+
+import CartItemCard from '@/components/atoms/cartItemCard';
+import EmptyState from '@/components/atoms/emptyState';
+
 import { StateItem } from '@/stores/cart.slice';
 
 import styles from './cart.module.scss'
@@ -44,90 +48,41 @@ const CartTemplate = (props: CartTemplateProps) => {
 
         <div className={styles.modalBody}>
 
-          <div className={styles.headers}>
-            <div className={styles.headerItems}>
-              Item
-            </div>
-            <div className={styles.headerQuantity}>
-              Cantidad
-            </div>
-            <div className={styles.headerTotalPrice}>
-              Precio
-            </div>
-            <div className={styles.headerActions} />
-          </div>
-
-          <div className={styles.cartItemsList}>
-            {props.items.map((item: StateItem) => (
-              <div className={styles.cartItem} key={item.product.id}>
-
-                <div className={styles.cartItemDetails}>
-                  <div className={styles.cartItemImage} style={{ backgroundImage: `url(${item.product.image})` }} />
-                  <div className={styles.cartItemInfo}>
-                    <h5 className={styles.cartItemTitle}>{item.product.title}</h5>
-                    <span className={styles.cardItemMetadata}>x {item.product.units_sf} {item.product.units_sf === 1 ? 'unit' : 'units'} - {item.product.net_content} c/u</span>
-                    <span className={styles.supplier}>{item.product.supplier}</span>
-                    <span className={styles.cartItemPrice}>
-                      <span className={styles.cartItemPriceSymbol}>
-                        $
-                      </span>
-                      <span className={styles.cartItemPriceValue}>
-                        {moneyFormat(Number(item.product.price_real))}
-                      </span>
-                    </span>
-                  </div>
+          {props.items.length > 0 ? (
+            <React.Fragment>
+              <div className={styles.headers}>
+                <div className={styles.headerItems}>
+                  Item
                 </div>
-
-                <div className={styles.cartItemQuantity}>
-
-                  <button
-                    className={styles.mutateQuantityButton}
-                    onClick={() => props.decreaseItemQuanty(item.product.id)}
-                    disabled={item.quantity <= 1}
-                  >
-                    <Icon path={mdiMinusCircleOutline}
-                      title="Remove"
-                      size={1.25}
-                    />
-                  </button>
-
-                  <span className={styles.cartItemQuantity}>{item.quantity}</span>
-
-                  <button
-                    className={styles.mutateQuantityButton}
-                    onClick={() => props.increaseItemQuanty(item.product.id)}
-                  >
-                    <Icon path={mdiPlusCircleOutline}
-                      title="Add"
-                      size={1.25}
-                    />
-                  </button>
-
+                <div className={styles.headerQuantity}>
+                  Cantidad
                 </div>
-
-                <div className={styles.cartItemTotalPrice}>
-                  <span className={styles.cartItemPriceSymbol}>
-                    $
-                  </span>
-                  <span className={styles.cartItemPriceValue}>
-                    {moneyFormat(Number(item.product.price_real) * item.quantity)}
-                  </span>
+                <div className={styles.headerTotalPrice}>
+                  Precio
                 </div>
-
-                <div className={styles.cartItemActions}>
-                  <button
-                    className={styles.deleteButton}
-                    onClick={() => props.removeItem(item.product.id)}
-                  >
-                    <Icon path={mdiTrashCanOutline}
-                      title="Delete"
-                      size={1}
-                    />
-                  </button>
-                </div>
+                <div className={styles.headerActions} />
               </div>
-            ))}
-          </div>
+
+              <div className={styles.cartItemsList}>
+                {props.items.map((item: StateItem) => (
+                  <CartItemCard
+                    key={item.product.id}
+                    item={item}
+                    increaseItemQuanty={props.increaseItemQuanty}
+                    decreaseItemQuanty={props.decreaseItemQuanty}
+                    removeItem={props.removeItem}
+                  />
+                ))}
+              </div>
+            </React.Fragment>
+          ) : (
+            <EmptyState
+              title="Tu carrito está vacío"
+              text="Por favor, añade algunos productos a tu carrito"
+              icon={mdiCartOutline}
+            />
+          )}
+
         </div>
       </div>
     </div>

@@ -5,7 +5,9 @@ import { EmptyStateTemplate } from './index'
 type EmptyStateContainerProps = {
   title: string
   text?: string
-  icon?: React.ReactNode
+  icon?: string
+  ctaText?: string
+  cta?: () => void
 }
 
 const EmptyStateContainer = (props: EmptyStateContainerProps) => {
@@ -14,6 +16,7 @@ const EmptyStateContainer = (props: EmptyStateContainerProps) => {
       title={props.title}
       text={props.text}
       icon={props.icon}
+      cta={props.cta}
     />
   );
 };
